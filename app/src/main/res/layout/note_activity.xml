@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoCorrect|textMultiLine"
+        android:lines="2"
+        android:maxLines="4"
+        android:padding="@dimen/padding"
+        android:textSize="@dimen/regular_text_size" />
+
+    <EditText
+        android:id="@+id/note_contents"
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:inputType="textAutoCorrect|textMultiLine"
+        android:padding="@dimen/padding"
+        android:scrollbars="vertical"
+        android:textSize="@dimen/regular_text_size" />
+
+</LinearLayout>
