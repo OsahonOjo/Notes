@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new NotesAdapter();
+        adapter = new NotesAdapter(MainActivity.this);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(adapter);
