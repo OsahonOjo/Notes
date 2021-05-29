@@ -78,8 +78,19 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which) {
-                                    case 0: MainActivity.noteDatabase.getNoteDao().delete(id);
-                                            reload();
+                                    case 0: AlertDialog.Builder builder2 = new AlertDialog.Builder(context);
+                                            builder2.setTitle(R.string.confirmation_question)
+                                                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                            MainActivity.noteDatabase.getNoteDao().delete(id);
+                                                            reload();
+                                                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    })
+                                                    .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id){}
+                                                    });
+                                            builder2.create().show();
                                             break;
 
                                     case 1: Toast.makeText(context, "Share", Toast.LENGTH_SHORT).show();

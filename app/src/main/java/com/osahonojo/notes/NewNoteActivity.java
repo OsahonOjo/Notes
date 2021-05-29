@@ -1,9 +1,11 @@
 package com.osahonojo.notes;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.os.Build.VERSION;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Date;
@@ -25,6 +27,8 @@ public class NewNoteActivity extends AppCompatActivity {
 
         noteTitle.setHint("Title");
 
+        // enable Up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -54,6 +58,18 @@ public class NewNoteActivity extends AppCompatActivity {
                 .noteDatabase
                 .getNoteDao()
                 .create(noteTitle.getText().toString(), dateTimeText, noteContents.getText().toString());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

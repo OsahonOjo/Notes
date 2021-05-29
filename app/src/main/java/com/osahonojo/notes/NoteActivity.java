@@ -1,9 +1,11 @@
 package com.osahonojo.notes;
 
+import android.view.MenuItem;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -30,6 +32,8 @@ public class NoteActivity extends AppCompatActivity {
         noteTitle.setText(MainActivity.noteDatabase.getNoteDao().getTitle(id));
         noteContents.setText(MainActivity.noteDatabase.getNoteDao().getContents(id));
 
+        // enable back button in action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -59,6 +63,18 @@ public class NoteActivity extends AppCompatActivity {
                 .noteDatabase
                 .getNoteDao()
                 .save(id, noteTitle.getText().toString(), dateTimeText, noteContents.getText().toString());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

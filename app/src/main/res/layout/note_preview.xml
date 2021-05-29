@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="0px"
-        android:layout_margin="0px">
-    </TextView>
+        android:layout_margin="0px"
+        android:background="@drawable/bottom_border"/>
 
 </LinearLayout>
