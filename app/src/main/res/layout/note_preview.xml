@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:padding="@dimen/padding"
+    android:padding="0dp"
     android:orientation="vertical">
 
     <TextView
@@ -15,13 +15,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/note_preview_row_text"
         android:textSize="@dimen/regular_text_size"
-        android:paddingBottom="@dimen/padding"/>
+        android:paddingStart="@dimen/padding"
+        android:paddingEnd="@dimen/padding"
+        android:paddingTop="@dimen/padding_xsmall"
+        android:paddingBottom="@dimen/padding_xsmall"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/note_preview_date"
         android:textSize="@dimen/tiny_text_size"
-        android:paddingBottom="@dimen/padding_xsmall"/>
+        android:paddingStart="@dimen/padding"
+        android:paddingEnd="@dimen/padding"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0px"
+        android:layout_margin="0px">
+    </TextView>
 
 </LinearLayout>
