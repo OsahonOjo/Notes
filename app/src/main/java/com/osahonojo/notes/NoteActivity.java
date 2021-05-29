@@ -33,6 +33,7 @@ public class NoteActivity extends AppCompatActivity {
         noteContents.setText(MainActivity.noteDatabase.getNoteDao().getContents(id));
 
         // enable back button in action bar
+        //
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
